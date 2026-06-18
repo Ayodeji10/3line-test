@@ -84,7 +84,11 @@ export function UserRole() {
           </p>
         </div>
         <div className="flex-1 w-full">
-          <RadioGroup className="w-full" value={user} onValueChange={setUser}>
+          <RadioGroup
+            className="w-full flex flex-col gap-3"
+            value={user}
+            onValueChange={setUser}
+          >
             {users.map((u) => {
               const id = `role-${u.name}`;
               return (

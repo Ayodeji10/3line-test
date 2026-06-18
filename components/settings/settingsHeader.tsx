@@ -3,18 +3,7 @@
 import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import clsx from 'clsx';
-
-const buttonsArray = [
-  'My details',
-  'Profile',
-  'Password',
-  'Team',
-  'Plan',
-  'Roles',
-  'Notifications',
-  'Integrations',
-  'API',
-];
+import { settingsButtons } from '@/lib/constants';
 
 export function SettingsHeader() {
   const [period, setPeriod] = useState('Roles');
@@ -29,7 +18,7 @@ export function SettingsHeader() {
       </div>
       <div className="w-full overflow-x-auto scrollbar-hide">
         <div className="flex">
-          {buttonsArray.map((button, i) => (
+          {settingsButtons.map((button, i) => (
             <Button
               key={button}
               variant="outline"
@@ -38,7 +27,7 @@ export function SettingsHeader() {
                 {
                   'rounded-tl-[8px] rounded-bl-[8px]': i === 0,
                   'rounded-tr-[8px] rounded-br-[8px]':
-                    i === buttonsArray.length - 1,
+                    i === settingsButtons.length - 1,
                   'bg-[#F9FAFB]': button === period,
                 },
               )}
