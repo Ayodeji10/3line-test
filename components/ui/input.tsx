@@ -1,19 +1,61 @@
+import { cn } from '@/lib/utils';
 import * as React from 'react';
 
-import { cn } from '@/lib/utils';
-
-function Input({ className, type, ...props }: React.ComponentProps<'input'>) {
-  return (
-    <input
-      type={type}
-      data-slot="input"
-      className={cn(
-        'h-8 w-full min-w-0 rounded-lg border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40',
-        className,
-      )}
-      {...props}
-    />
-  );
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  rightElement?: React.ReactNode;
+  leftElement?: React.ReactNode;
+  hideBorders?: boolean;
+  variant?: 'filled' | 'outline' | 'ghost';
 }
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      className,
+      type,
+      rightElement,
+      leftElement,
+      hideBorders,
+      variant,
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <div
+        className={cn(
+          'flex flex-row justify-start items-center gap-2 px-3',
+          'h-12 w-full items-center rounded-[12px] focus-within:ring-2 focus-within:bg-transparent',
+          'focus-within:ring-[#D6BBFB] focus-within:ring-offset-0',
+          'focus-within:ring-offset-background transition-all bg-background',
+          {
+            'border border-input': !hideBorders,
+            'bg-transparent': variant === 'outline',
+            // "bg-[#F5F7F9]": variant === "filled",
+            'focus-within:ring-0 focus-within:ring-transparent bg-transparent p-0':
+              variant === 'ghost',
+          },
+          className,
+        )}
+      >
+        {leftElement && leftElement}
+        <input
+          type={type}
+          className={cn(
+            'bg-transparent flex-1 w-full h-full outline-none file:border-0 file:bg-transparent',
+            'placeholder:text-muted-foreground text-[14px] text-foreground',
+            'placeholder:text-[14px] file:text-sm file:font-medium focus-visible:outline-none',
+            'disabled:cursor-not-allowed disabled:opacity-50',
+          )}
+          ref={ref}
+          {...props}
+        />
+        {rightElement && rightElement}
+      </div>
+    );
+  },
+);
+
+Input.displayName = 'Input';
 
 export { Input };

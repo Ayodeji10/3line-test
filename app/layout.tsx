@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="min-h-screen">
           <MobileNav />
           <div className="flex">
-            <aside className="fixed left-0 top-0 hidden h-screen w-70 border-r bg-background md:flex md:flex-col">
+            <aside className="py-8 px-6 fixed left-0 top-0 hidden h-screen w-70 border-r bg-background md:flex md:flex-col">
               <Navigation />
             </aside>
             <main className="w-full md:ml-70 p-8 bg-[#F9FAFB] ">

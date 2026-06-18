@@ -1,3 +1,45 @@
+import {
+  ChartNoAxesColumn,
+  Flag,
+  House,
+  Layers,
+  LifeBuoy,
+  Settings,
+  SquareCheckBig,
+  Users,
+} from 'lucide-react';
+
+export const navItems = [
+  { label: 'Home', icon: <House />, notifications: null, isActive: false },
+  {
+    label: 'Dashboard',
+    icon: <ChartNoAxesColumn />,
+    notifications: 10,
+    isActive: false,
+  },
+  { label: 'Projects', icon: <Layers />, notifications: null, isActive: false },
+  {
+    label: 'Tasks',
+    icon: <SquareCheckBig />,
+    notifications: null,
+    isActive: false,
+  },
+  { label: 'Reporting', icon: <Flag />, notifications: null, isActive: false },
+  { label: 'Users', icon: <Users />, notifications: null, isActive: false },
+  {
+    label: 'Support',
+    icon: <LifeBuoy />,
+    notifications: null,
+    isActive: false,
+  },
+  {
+    label: 'Settings',
+    icon: <Settings />,
+    notifications: null,
+    isActive: true,
+  },
+];
+
 export const settingsButtons = [
   'My details',
   'Profile',

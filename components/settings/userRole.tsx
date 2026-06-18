@@ -7,6 +7,7 @@ import {
   FieldDescription,
   FieldLabel,
   FieldTitle,
+  Input,
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
@@ -65,12 +66,13 @@ export function UserRole() {
                 >
                   An alternative email
                 </FieldLabel>
-                <InputGroup className="max-w-xs">
+                {/* <InputGroup className="max-w-xs">
                   <InputGroupInput value="billing@untitledui.com" />
                   <InputGroupAddon>
                     <Mail />
                   </InputGroupAddon>
-                </InputGroup>
+                </InputGroup> */}
+                <Input leftElement={<Mail />} value="billing@untitledui.com" />
               </FieldContent>
             </Field>
           </RadioGroup>

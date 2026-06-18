@@ -5,3 +5,5 @@ export * from './input-group';
 export * from './button';
 export * from './table';
 export * from './avatar';
+export * from './input';
+export * from './badge';

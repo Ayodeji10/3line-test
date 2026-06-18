@@ -53,7 +53,7 @@ export default function UserRoleTable() {
             )}
           >
             {row.getValue('status') === 'Active' && (
-              <Check size={20} color="#12B76A" />
+              <Check size={15} color="#12B76A" />
             )}{' '}
             {row.getValue('status')}
           </span>
